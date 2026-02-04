@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AGF Estética Automotiva | Pomerode</title>
+    
+    <link rel="icon" type="image/png" href="img/logo-icon.png?v=7">
+    <link rel="apple-touch-icon" href="img/logo-icon.png?v=7">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* OTIMIZAÇÃO DE PERFORMANCE (Invisível ao Layout) */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Força o uso da GPU para animações suaves */
+        .s-card, .hero-content, .diamond-anim, .main-services-title {
+            will-change: transform, opacity;
+            transform: translateZ(0); 
+        }
+
+        /* HEADER CLICÁVEL */
+        .header-logo-link {
+            text-decoration: none !important;
+            display: flex;
+            align-items: center;
+            color: inherit;
+        }
+
+        /* NITIDEZ DO BANNER */
+        .header-mini-banner {
+            filter: brightness(1.1) contrast(1.2);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            height: 80px; 
+            width: auto;
+        }
+
+        /* LOGO SEMPRE LADO A LADO */
+        .logo, .logo-footer {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            white-space: nowrap;
+        }
+
+        .logo-text { font-size: 1.8rem; font-weight: 900; color: #fff; }
+
+        @media (max-width: 480px) {
+            .logo-text { font-size: 1.3rem !important; }
+            .header-mini-banner { height: 60px !important; }
+            .logo { gap: 10px; }
+        }
+
+        /* TÍTULO MESTRE SERVIÇOS */
+        .main-services-title {
+            color: #0096ff; 
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 80px; 
+            margin-bottom: 50px;
+            animation: masterServicePulse 4s infinite ease-in-out;
+        }
+
+        @keyframes masterServicePulse {
+            0%, 100% { text-shadow: 0 0 5px rgba(0, 150, 255, 0); transform: scale(1); }
+            50% { text-shadow: 0 0 40px rgba(0, 150, 255, 0.9); transform: scale(1.03); color: #ffffff; }
+        }
+
+        @media (max-width: 768px) {
+            .main-services-title { font-size: 2.2rem; }
+        }
+
+        /* HERO */
+        .hero-content h1 {
+            animation: ultraWhitePulse 4s infinite ease-in-out;
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        @keyframes ultraWhitePulse {
+            0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0); transform: scale(1); }
+            50% { text-shadow: 0 0 40px rgba(255,255,255,0.8); transform: scale(1.03); }
+        }
+
+        /* PULSAÇÕES AZUL CLARO */
+        .blue-text, .marcas-glow {
+            color: #0096ff !important;
+            font-weight: 900;
+            animation: ultraBlueGlow 4s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes ultraBlueGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(0, 150, 255, 0.4); }
+            50% { text-shadow: 0 0 30px rgba(0, 150, 255, 1); }
+        }
+
+        /* DIAMANTE MACIO E PREMIUM */
+        .diamond-anim {
+            display: inline-block;
+            font-size: 2.5rem;
+            color: #0096ff;
+            margin-bottom: 15px;
+            padding: 10px;
+            animation: diamondUltra 3s infinite ease-in-out;
+        }
+
+        @keyframes diamondUltra {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(0,150,255,0.2)); }
+            50% { transform: scale(1.15); filter: drop-shadow(0 0 25px rgba(0,150,255,0.9)); }
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 20px 0 !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <nav class="container header-center">
+            <a href="#home" class="header-logo-link">
+                <div class="logo">
+                    <img src="img/minibanner.png" alt="AGF Logo" class="header-mini-banner">
+                    <div class="logo-text">AGF <span class="blue-text">ESTÉTICA</span></div>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="zoom-in">
+            <span class="subtitle">EXPERIÊNCIA PREMIUM EM POMERODE</span>
+            <h1>A perfeição em <br>cada detalhe.</h1>
+            <div class="hero-btns">
+                <a href="#especialidades" class="btn-primary pulse-btn">Nossos Serviços</a>
+                <a href="https://wa.me/5547997682055" class="btn-secondary pulse-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="especialidades" class="servicos container">
+        <h2 class="main-services-title" data-aos="fade-up">Nossos Serviços</h2>
+        
+        <div class="section-title" data-aos="fade-down">
+            <h2>Polimento & Vitrificação</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="grid-servicos">
+            <div class="s-card" data-aos="fade-up">
+                <div class="card-icon"><i class="fas fa-tools"></i></div>
+                <h3>Polimento Técnico</h3>
+                <p>Remoção de riscos e nivelamento de verniz com polidores de alta tecnologia.</p>
+            </div>
+            <div class="s-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon"><i class="fas fa-car-side"></i></div>
+                <h3>Polimento Comercial</h3>
+                <p>Brilho rápido e remoção de oxidações superficiais.</p>
+            </div>
+            <div class="s-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Vitrificação VX45</h3>
+                <p>Proteção Alcance VX45 contra raios UV e agentes químicos.</p>
+            </div>
+            <div class="s-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h3>Enceramento Manual</h3>
+                <p>Brilho profundo e proteção hidrofóbica de alta qualidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="detalhamento" class="servicos container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Detalhamento Avançado</h2>
+            <p class="marcas marcas-glow">CarPro | Vonixx | Soft99 | Alcance</p>
+            <div class="divider"></div>
+        </div>
+        <div class="grid-servicos">
+            <div class="s-card" data-aos="fade-up">
+                <div class="card-icon"><i class="fas fa-cloud-showers-heavy"></i></div>
+                <h3>Snow Foam</h3>
+                <p>Pré-lavagem com espuma densa que encapsula a sujeira.</p>
+            </div>
+            <div class="s-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div> 
+                <h3>Higienização de Motor</h3>
+                <p>Limpeza técnica detalhada com produtos específicos.</p>
+            </div>
+            <div class="s-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon"><i class="fas fa-couch"></i></div>
+                <h3>Higienização Interna</h3>
+                <p>Limpeza profunda de estofados com bactericidas potentes.</p>
+            </div>
+            <div class="s-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="card-icon"><i class="fas fa-fill-drip"></i></div>
+                <h3>Vidros & Faróis</h3>
+                <p>Revitalização de faróis e cristalização de vidros.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="frase-impacto">
+        <div class="container">
+            <p id="frase-animada"></p>
+        </div>
+    </section>
+
+    <section id="contato" class="contato container">
+        <div class="contato-grid">
+            <div class="contato-info" data-aos="fade-right">
+                <div class="info-content">
+                    <h2>Fale Conosco</h2>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Rua Gustavo Gueths, 300 - Pomerode</p>
+                    </div>
+                    <a href="https://www.instagram.com/agf.estetica/" target="_blank" class="insta-link">
+                        <div class="info-item">
+                            <i class="fab fa-instagram"></i>
+                            <p>@agfestética</p>
+                        </div>
+                    </a>
+                </div>
+                <a href="https://wa.me/5547997682055" class="btn-primary pulse-btn btn-agendar">Agendar Agora</a>
+            </div>
+            <div class="mapa" data-aos="fade-left">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.444773824338!2d-49.1764722!3d-26.7029837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df05167f1361c1%3A0x6e9a05f013d2f256!2sR.%20Gustavo%20Gueths%2C%20300%20-%20Centro%2C%20Pomerode%20-%20SC%2C%2089107-000!5e0!3m2!1spt-BR!2sbr!4v1707000000000" 
+                    width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top" data-aos="fade-up">
+                <i class="fas fa-gem diamond-anim"></i>
+                <div class="logo-footer">
+                    <span class="logo-text-footer" style="font-size: 1.5rem; font-weight: 900; color:#fff;">AGF <span class="blue-text">ESTÉTICA</span></span>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="copyright">
+                <p>© 2026 AGF Estética. Todos os direitos reservados.</p>
+                <p>Site desenvolvido por <span class="autor">André Lucas Maia Fiechter</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5547997682055" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Inicializado com duração menor para parecer mais rápido
+        AOS.init({ duration: 800, once: true });
+
+        // Scroll com passive listener para melhor performance
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(header) header.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        const texto = "Onde o detalhe encontra a perfeição.";
+        const elemento = document.getElementById("frase-animada");
+        let i = 0; let jaAnimou = false;
+        function digitar() {
+            if (i < texto.length) {
+                elemento.innerHTML += texto.charAt(i); i++;
+                setTimeout(digitar, 70);
+            }
+        }
+        window.addEventListener('scroll', function() {
+            if(!elemento) return;
+            const rect = elemento.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.85 && !jaAnimou) {
+                jaAnimou = true; digitar();
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
