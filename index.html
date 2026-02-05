@@ -14,27 +14,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* OTIMIZAÇÃO DE PERFORMANCE (Invisível ao Layout) */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        /* OTIMIZAÇÃO DE PERFORMANCE */
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-        /* Força o uso da GPU para animações suaves */
         .s-card, .hero-content, .diamond-anim, .main-services-title {
             will-change: transform, opacity;
             transform: translateZ(0); 
         }
 
-        /* HEADER CLICÁVEL */
-        .header-logo-link {
-            text-decoration: none !important;
-            display: flex;
-            align-items: center;
-            color: inherit;
-        }
+        .header-logo-link { text-decoration: none !important; display: flex; align-items: center; color: inherit; }
 
-        /* NITIDEZ DO BANNER */
         .header-mini-banner {
             filter: brightness(1.1) contrast(1.2);
             image-rendering: -webkit-optimize-contrast;
@@ -43,7 +32,6 @@
             width: auto;
         }
 
-        /* LOGO SEMPRE LADO A LADO */
         .logo, .logo-footer {
             display: flex !important;
             flex-direction: row !important;
@@ -61,7 +49,6 @@
             .logo { gap: 10px; }
         }
 
-        /* TÍTULO MESTRE SERVIÇOS */
         .main-services-title {
             color: #0096ff; 
             font-size: 3rem;
@@ -79,23 +66,20 @@
             50% { text-shadow: 0 0 40px rgba(0, 150, 255, 0.9); transform: scale(1.03); color: #ffffff; }
         }
 
-        @media (max-width: 768px) {
-            .main-services-title { font-size: 2.2rem; }
-        }
-
-        /* HERO */
-        .hero-content h1 {
-            animation: ultraWhitePulse 4s infinite ease-in-out;
-            color: #ffffff;
+        /* CURSOR INCLINADO (BARRA /) */
+        #titulo-hero::after, #frase-animada::after {
+            content: '/' !important;
+            margin-left: 8px;
+            color: #0096ff;
             font-weight: 900;
+            animation: cursorPisca 0.8s infinite;
         }
 
-        @keyframes ultraWhitePulse {
-            0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0); transform: scale(1); }
-            50% { text-shadow: 0 0 40px rgba(255,255,255,0.8); transform: scale(1.03); }
+        @keyframes cursorPisca {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
-        /* PULSAÇÕES AZUL CLARO */
         .blue-text, .marcas-glow {
             color: #0096ff !important;
             font-weight: 900;
@@ -108,7 +92,6 @@
             50% { text-shadow: 0 0 30px rgba(0, 150, 255, 1); }
         }
 
-        /* DIAMANTE MACIO E PREMIUM */
         .diamond-anim {
             display: inline-block;
             font-size: 2.5rem;
@@ -123,11 +106,9 @@
             50% { transform: scale(1.15); filter: drop-shadow(0 0 25px rgba(0,150,255,0.9)); }
         }
 
-        /* RODAPÉ */
         footer {
             background: rgba(0, 0, 0, 0.8) !important;
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             padding: 20px 0 !important;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
@@ -155,7 +136,7 @@
     <section id="home" class="hero">
         <div class="hero-content" data-aos="zoom-in">
             <span class="subtitle">EXPERIÊNCIA PREMIUM EM POMERODE</span>
-            <h1>A perfeição em <br>cada detalhe.</h1>
+            <h1 id="titulo-hero"></h1>
             <div class="hero-btns">
                 <a href="#especialidades" class="btn-primary pulse-btn">Serviços</a>
                 <a href="https://wa.me/5547997682055" class="btn-secondary pulse-btn" target="_blank">
@@ -176,22 +157,22 @@
             <div class="s-card" data-aos="fade-up">
                 <div class="card-icon"><i class="fas fa-tools"></i></div>
                 <h3>Polimento Técnico</h3>
-                <p>Remoção de riscos e nivelamento de verniz com polidores de alta tecnologia.</p>
+                <p>Correção de pintura em 3 etapas (Corte, Refino e Lustro). Removemos swirls e microrriscos, restaurando a profundidade da cor e o reflexo espelhado do verniz.</p>
             </div>
             <div class="s-card" data-aos="fade-up" data-aos-delay="50">
                 <div class="card-icon"><i class="fas fa-car-side"></i></div>
                 <h3>Polimento Comercial</h3>
-                <p>Brilho rápido e remoção de oxidações superficiais.</p>
+                <p>Ideal para revenda. Promove um brilho imediato e remove oxidações superficiais, valorizando o veículo com um excelente custo-benefício.</p>
             </div>
             <div class="s-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>Vitrificação VX45</h3>
-                <p>Proteção Alcance VX45 contra raios UV e agentes químicos.</p>
+                <p>Proteção Alcance VX45 de alto desempenho. Cria uma camada cerâmica que protege contra raios UV, seiva de árvores e fezes de aves, facilitando a lavagem.</p>
             </div>
             <div class="s-card" data-aos="fade-up" data-aos-delay="150">
                 <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
                 <h3>Enceramento Manual</h3>
-                <p>Brilho profundo e proteção hidrofóbica de alta qualidade.</p>
+                <p>Aplicação de ceras premium hidrofóbicas. Garante uma camada de proteção sedosa, repelência à água e um toque aveludado na lataria.</p>
             </div>
         </div>
     </section>
@@ -206,22 +187,22 @@
             <div class="s-card" data-aos="fade-up">
                 <div class="card-icon"><i class="fas fa-cloud-showers-heavy"></i></div>
                 <h3>Snow Foam</h3>
-                <p>Pré-lavagem com espuma densa que encapsula a sujeira.</p>
+                <p>Lavagem técnica com shampoo de pH neutro e espuma densa que encapsula a sujeira abrasiva, evitando riscos durante a esfregação.</p>
             </div>
             <div class="s-card" data-aos="fade-up" data-aos-delay="50">
                 <div class="card-icon"><i class="fas fa-microchip"></i></div> 
                 <h3>Higienização de Motor</h3>
-                <p>Limpeza técnica detalhada com produtos específicos.</p>
+                <p>Limpeza detalhada com pincéis e produtos dielétricos. Proteção de borrachas e plásticos contra o ressecamento térmico, mantendo o motor novo.</p>
             </div>
             <div class="s-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-icon"><i class="fas fa-couch"></i></div>
                 <h3>Higienização Interna</h3>
-                <p>Limpeza profunda de estofados com bactericidas potentes.</p>
+                <p>Limpeza profunda de estofados e carpetes com extratora e bactericidas. Remove manchas, odores e hidrata plásticos e couros com acabamento seco.</p>
             </div>
             <div class="s-card" data-aos="fade-up" data-aos-delay="150">
                 <div class="card-icon"><i class="fas fa-fill-drip"></i></div>
                 <h3>Vidros & Faróis</h3>
-                <p>Revitalização de faróis e cristalização de vidros.</p>
+                <p>Restauração de faróis amarelados e cristalização de vidros, melhorando a visibilidade em dias de chuva e a segurança ao dirigir</p>
             </div>
         </div>
     </section>
@@ -252,7 +233,7 @@
             </div>
             <div class="mapa" data-aos="fade-left">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.444773824338!2d-49.1764722!3d-26.7029837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df05167f1361c1%3A0x6e9a05f013d2f256!2sR.%20Gustavo%20Gueths%2C%20300%20-%20Centro%2C%20Pomerode%20-%20SC%2C%2089107-000!5e0!3m2!1spt-BR!2sbr!4v1707000000000" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.4645233150534!2d-49.1793547!3d-26.793333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df194f8393e967%3A0x868c688d8b188c7c!2sR.%20Gustavo%20Gueths%2C%20300%20-%20Pomerode%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1700000000000" 
                     width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
@@ -281,32 +262,46 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // AOS Inicializado com duração menor para parecer mais rápido
         AOS.init({ duration: 800, once: true });
 
-        // Scroll com passive listener para melhor performance
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if(header) header.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
-        const texto = "Onde o detalhe encontra a perfeição.";
-        const elemento = document.getElementById("frase-animada");
-        let i = 0; let jaAnimou = false;
-        function digitar() {
-            if (i < texto.length) {
-                elemento.innerHTML += texto.charAt(i); i++;
-                setTimeout(digitar, 70);
-            }
-        }
-        window.addEventListener('scroll', function() {
+        function digitarTexto(elementoId, texto, velocidade, callback) {
+            let i = 0;
+            const elemento = document.getElementById(elementoId);
             if(!elemento) return;
-            const rect = elemento.getBoundingClientRect();
-            if (rect.top <= window.innerHeight * 0.85 && !jaAnimou) {
-                jaAnimou = true; digitar();
+            
+            function processo() {
+                if (i < texto.length) {
+                    elemento.innerHTML += texto.charAt(i);
+                    i++;
+                    setTimeout(processo, velocidade);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            processo();
+        }
+
+        window.onload = function() {
+            digitarTexto("titulo-hero", "Transformando estética em arte.", 100);
+        };
+
+        const fraseImpactoTexto = "Onde o detalhe encontra a perfeição.";
+        const elementoFrase = document.getElementById("frase-animada");
+        let jaAnimouFrase = false;
+
+        window.addEventListener('scroll', function() {
+            if(!elementoFrase) return;
+            const rect = elementoFrase.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.85 && !jaAnimouFrase) {
+                jaAnimouFrase = true;
+                digitarTexto("frase-animada", fraseImpactoTexto, 70);
             }
         }, { passive: true });
     </script>
 </body>
 </html>
-
