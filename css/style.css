@@ -23,9 +23,15 @@ html, body {
 html { scroll-behavior: smooth; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* ANIMAÇÃO REMOVIDA - AGORA ESTÁTICO */
+/* ANIMAÇÃO BRILHO ESTÉTICA */
+@keyframes blueGlow {
+    0%, 100% { text-shadow: 0 0 5px rgba(0, 118, 255, 0.4), 0 0 10px rgba(0, 118, 255, 0.2); }
+    50% { text-shadow: 0 0 15px rgba(0, 118, 255, 1), 0 0 25px rgba(0, 118, 255, 0.8); }
+}
+
 .blue-text {
     color: var(--blue);
+    animation: blueGlow 2.5s ease-in-out infinite;
 }
 
 /* HEADER */
@@ -47,7 +53,7 @@ header.scrolled { background: rgba(0,0,0,0.98); padding: 15px 0; border-bottom: 
 .btn-secondary { background: transparent; border: 2px solid white; color: white; padding: 16px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; }
 .btn-secondary:hover { background: white; color: black; box-shadow: 0 0 20px white; }
 
-/* CARDS E DIVISOR */
+/* CARDS E DIVISOR (AJUSTADO) */
 .servicos { padding: 80px 0; text-align: center; }
 .section-title h2 { font-size: 2.2rem; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; }
 
@@ -86,50 +92,14 @@ header.scrolled { background: rgba(0,0,0,0.98); padding: 15px 0; border-bottom: 
 @keyframes iconFloat { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(3deg); } }
 .s-card p { color: #ccc; line-height: 1.6; font-size: 0.95rem; pointer-events: none; }
 
-/* --- FRASE IMPACTO (CORREÇÃO TOTAL E FORÇADA) --- */
-.frase-impacto { 
-    padding: 80px 0; 
-    text-align: center; 
-    background: #080808; 
+/* FRASE IMPACTO */
+.frase-impacto { padding: 80px 0; text-align: center; background: #080808; }
+.frase-impacto p { 
+    font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: var(--white); 
+    text-transform: uppercase; letter-spacing: 3px; display: inline-block; min-height: 1.6rem;
 }
-
-/* 1. Esconde o texto original que estava se mexendo */
-.frase-impacto p, 
-#frase-animada { 
-    font-size: 0 !important; /* Faz o texto antigo sumir */
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    display: inline-block;
-}
-
-/* 2. Remove qualquer cursor ou rastro piscante */
-#frase-animada::after {
-    content: none !important;
-    display: none !important;
-    animation: none !important;
-}
-
-/* 3. Cria a frase NOVA, BRANCA e ESTÁTICA */
-#frase-animada::before {
-    content: "A PERFEIÇÃO EM CADA DETALHE";
-    
-    font-size: 1.6rem !important; 
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 900; 
-    font-style: italic; 
-    
-    color: #ffffff !important; /* Branco puro garantido */
-    text-transform: uppercase; 
-    letter-spacing: 3px; 
-    
-    visibility: visible !important;
-    display: block; 
-    width: 100%;
-    min-height: 1.6rem;
-}
-/* ---------------------------------------------------- */
+#frase-animada::after { content: '|'; margin-left: 8px; color: var(--blue); animation: cursorPisca 0.8s infinite; }
+@keyframes cursorPisca { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* CONTATO */
 .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 60px 0 100px; }
