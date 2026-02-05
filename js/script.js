@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa animações AOS
+    // 1. INICIALIZAÇÃO DE ANIMAÇÕES (AOS)
     AOS.init({ duration: 1000, once: true });
 
-    // Header dinâmico
+    // 2. HEADER DINÂMICO
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
-        window.scrollY > 50 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
-    });
+        if (header) {
+            window.scrollY > 50 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
+        }
+    }, { passive: true });
 
-    // Smooth Scroll para links internos
+    // 3. SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -17,30 +19,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Brilho no nome do Desenvolvedor
-    const autor = document.querySelector('.autor');
-    autor.addEventListener('mouseover', () => { autor.style.textShadow = "0 0 20px #0076FF"; });
-    autor.addEventListener('mouseleave', () => { autor.style.textShadow = "none"; });
+    // 4. MOTOR DE DIGITAÇÃO ULTRA RÁPIDO
+    function iniciarDigitacao(idElemento, textoParaDigitar, velocidade) {
+        let indice = 0;
+        const alvo = document.getElementById(idElemento);
+        if(!alvo) return;
 
-    // FRASE DIGITANDO
-    const texto = "Onde o detalhe encontra a perfeição.";
-    const elemento = document.getElementById("frase-animada");
-    let i = 0; let jaAnimou = false;
+        alvo.innerHTML = "";
+        alvo.style.transition = "none"; // Garante que o CSS não freie o JS
 
-    function digitar() {
-        if (i < texto.length) {
-            elemento.innerHTML += texto.charAt(i);
-            i++;
-            setTimeout(digitar, 70);
+        function executar() {
+            if (indice < textoParaDigitar.length) {
+                alvo.innerHTML += textoParaDigitar.charAt(indice);
+                indice++;
+                setTimeout(executar, velocidade);
+            }
         }
+        executar();
     }
 
+    // --- EXECUÇÃO ---
+    // Topo: 10ms (Instantâneo)
+    iniciarDigitacao("titulo-hero", "Transformando estética em arte.", 10);
+
+    // Rodapé: 25ms (Rápido no scroll)
+    const fraseTexto = "Onde o detalhe encontra a perfeição.";
+    const elementoFrase = document.getElementById("frase-animada");
+    let jaAnimouFrase = false;
+
     window.addEventListener('scroll', () => {
-        if(!elemento) return;
-        const rect = elemento.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.85 && !jaAnimou) {
-            jaAnimou = true;
-            digitar();
+        if(!elementoFrase) return;
+        const rect = elementoFrase.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.85 && !jaAnimouFrase) {
+            jaAnimouFrase = true;
+            iniciarDigitacao("frase-animada", fraseTexto, 25);
         }
     }, { passive: true });
 });
